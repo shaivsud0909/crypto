@@ -5,6 +5,7 @@ import matplotlib as p
 import io
 import base64
 import pytz
+import os
 
 p.use('Agg')  # Use non-GUI backend for web servers
 
@@ -187,5 +188,7 @@ def render_chart():
 
 
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
